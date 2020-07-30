@@ -216,108 +216,111 @@ class SurinameFlag extends CustomPainter {
   }
 }
 
-class SubListItem extends StatelessWidget {
+class SubListItem extends ViewModelWidget<HomeViewModel> {
   const SubListItem({
     Key key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(right: 30),
-      height: 105,
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            top: 30,
-            right: 0,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.white,
-                // boxShadow: [
-                //   BoxShadow(
-                //       color: Colors.grey[300],
-                //       offset: Offset(0, 2),
-                //       blurRadius: 10)
-                // ],
-              ),
-              width: 300,
-              height: 75,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 60, top: 10),
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            "Nickerie, Suriname",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText2
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Icon(
-                                Icons.star,
-                                color: Colors.yellow[800],
-                                size: 14,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.yellow[800],
-                                size: 14,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.yellow[800],
-                                size: 14,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.yellow[800],
-                                size: 14,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.grey,
-                                size: 14,
-                              )
-                            ],
-                          )
-                        ],
+  Widget build(BuildContext context, HomeViewModel model) {
+    return GestureDetector(
+      onTap: () => model.navigateToPlace(),
+      child: Container(
+        padding: EdgeInsets.only(right: 30),
+        height: 105,
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              top: 30,
+              right: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.white,
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //       color: Colors.grey[300],
+                  //       offset: Offset(0, 2),
+                  //       blurRadius: 10)
+                  // ],
+                ),
+                width: 300,
+                height: 75,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 60, top: 10),
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              "Nickerie, Suriname",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2
+                                  .copyWith(fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow[800],
+                                  size: 14,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow[800],
+                                  size: 14,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow[800],
+                                  size: 14,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow[800],
+                                  size: 14,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.grey,
+                                  size: 14,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8, right: 40),
-                      child: Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-                        style: Theme.of(context)
-                            .textTheme
-                            .caption
-                            .copyWith(fontSize: 9),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8, right: 40),
+                        child: Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+                          style: Theme.of(context)
+                              .textTheme
+                              .caption
+                              .copyWith(fontSize: 9),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          Container(
-            width: 90,
-            height: 90,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                    image: NetworkImage(
-                        "https://surinameholidays.nl/wp-content/uploads/2016/05/DSC00377_renamed_32.jpg"),
-                    fit: BoxFit.cover)),
-          ),
-        ],
+            Container(
+              width: 90,
+              height: 90,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          "https://surinameholidays.nl/wp-content/uploads/2016/05/DSC00377_renamed_32.jpg"),
+                      fit: BoxFit.cover)),
+            ),
+          ],
+        ),
       ),
     );
   }
